@@ -3,13 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './apolloClient'; // Import the configured Apollo Client
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+// ApolloProvider is a component from the Apollo Client library. 
+// It wraps your React application and provides the Apollo Client instance to the React component
 root.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}> {/* Wrap the App with ApolloProvider */}
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
 
